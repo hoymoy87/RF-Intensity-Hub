@@ -1,0 +1,459 @@
+
+-- Gui to Lua
+-- Version: 3.2
+local tweentpMode = false
+-- Instances:
+local randomtploopval = false
+local player = game.Players.LocalPlayer
+local char = player.Character
+local RFintensityHub = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local SecondaryFrame = Instance.new("Frame")
+local WalkSpeed = Instance.new("TextButton")
+local Speed = Instance.new("TextBox")
+local TpRandom = Instance.new("TextButton")
+local Plr = Instance.new("TextBox")
+local Teleport = Instance.new("TextButton")
+local TpLoop = Instance.new("TextButton")
+local RandomTpLoop = Instance.new("TextButton")
+local SelfDestruct = Instance.new("TextButton")
+local Title = Instance.new("TextLabel")
+local Title2 = Instance.new("TextLabel")
+local DestructAccpet = Instance.new("Frame")
+local Accept = Instance.new("TextButton")
+local DEC = Instance.new("TextButton")
+local Menu = Instance.new("Frame")
+local AdvancedaTp = Instance.new("TextButton")
+local Fly = Instance.new("TextButton")
+local RemoteEventSpam = Instance.new("TextButton")
+local DexExplorer = Instance.new("TextButton")
+local TpRandom_2 = Instance.new("TextButton")
+local UserInput = game:GetService("UserInputService")
+local mouse = player:GetMouse()
+RFintensityHub.Parent = game.CoreGui
+Main.Active = true
+
+Main.Draggable = true
+
+
+--Properties:
+
+RFintensityHub.Name = "RFintensityHub"
+RFintensityHub.Parent =  game.CoreGui
+RFintensityHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Name = "Main"
+Main.Parent = RFintensityHub
+Main.BackgroundColor3 = Color3.fromRGB(39, 39, 39)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.0347682126, 0, 0.415468007, 0)
+Main.Size = UDim2.new(0, 528, 0, 382)
+
+SecondaryFrame.Name = "SecondaryFrame"
+SecondaryFrame.Parent = Main
+SecondaryFrame.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+SecondaryFrame.BorderSizePixel = 0
+SecondaryFrame.Position = UDim2.new(0.0118026733, 0, 0.131132588, 0)
+SecondaryFrame.Size = UDim2.new(0, 515, 0, 325)
+
+WalkSpeed.Name = "WalkSpeed"
+WalkSpeed.Parent = SecondaryFrame
+WalkSpeed.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+WalkSpeed.BorderSizePixel = 0
+WalkSpeed.Position = UDim2.new(0.0310679618, 0, 0.0523076914, 0)
+WalkSpeed.Size = UDim2.new(0, 200, 0, 50)
+WalkSpeed.Font = Enum.Font.SourceSansBold
+WalkSpeed.Text = "WalkSpeed"
+WalkSpeed.TextColor3 = Color3.fromRGB(255, 255, 255)
+WalkSpeed.TextScaled = true
+WalkSpeed.TextSize = 14.000
+WalkSpeed.TextWrapped = true
+
+Speed.Name = "Speed"
+Speed.Parent = SecondaryFrame
+Speed.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+Speed.Position = UDim2.new(0.419417471, 0, 0.0523076914, 0)
+Speed.Size = UDim2.new(0, 65, 0, 50)
+Speed.Font = Enum.Font.SourceSansBold
+Speed.Text = "16"
+Speed.TextColor3 = Color3.fromRGB(255, 255, 255)
+Speed.TextScaled = true
+Speed.TextSize = 14.000
+Speed.TextWrapped = true
+
+TpRandom.Name = "TpRandom"
+TpRandom.Parent = SecondaryFrame
+TpRandom.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+TpRandom.BorderSizePixel = 0
+TpRandom.Position = UDim2.new(0.0310679618, 0, 0.261538446, 0)
+TpRandom.Size = UDim2.new(0, 200, 0, 50)
+TpRandom.Font = Enum.Font.SourceSansBold
+TpRandom.Text = "TpRandom"
+TpRandom.TextColor3 = Color3.fromRGB(255, 255, 255)
+TpRandom.TextScaled = true
+TpRandom.TextSize = 14.000
+TpRandom.TextWrapped = true
+
+Plr.Name = "Plr"
+Plr.Parent = SecondaryFrame
+Plr.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+Plr.Position = UDim2.new(0.419417471, 0, 0.473846167, 0)
+Plr.Size = UDim2.new(0, 65, 0, 50)
+Plr.Font = Enum.Font.SourceSans
+Plr.Text = "Player"
+Plr.TextColor3 = Color3.fromRGB(255, 255, 255)
+Plr.TextScaled = true
+Plr.TextSize = 14.000
+Plr.TextWrapped = true
+
+Teleport.Name = "Teleport"
+Teleport.Parent = SecondaryFrame
+Teleport.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+Teleport.BorderSizePixel = 0
+Teleport.Position = UDim2.new(0.0310679618, 0, 0.473846167, 0)
+Teleport.Size = UDim2.new(0, 200, 0, 50)
+Teleport.Font = Enum.Font.SourceSansBold
+Teleport.Text = "Teleport"
+Teleport.TextColor3 = Color3.fromRGB(255, 255, 255)
+Teleport.TextScaled = true
+Teleport.TextSize = 14.000
+Teleport.TextWrapped = true
+
+TpLoop.Name = "TpLoop"
+TpLoop.Parent = SecondaryFrame
+TpLoop.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+TpLoop.BorderSizePixel = 0
+TpLoop.Position = UDim2.new(0.0310679618, 0, 0.707692325, 0)
+TpLoop.Size = UDim2.new(0, 200, 0, 50)
+TpLoop.Font = Enum.Font.SourceSansBold
+TpLoop.Text = "Random tp loop"
+TpLoop.TextColor3 = Color3.fromRGB(255, 255, 255)
+TpLoop.TextScaled = true
+TpLoop.TextSize = 14.000
+TpLoop.TextWrapped = true
+
+RandomTpLoop.Name = "RandomTpLoop"
+RandomTpLoop.Parent = SecondaryFrame
+RandomTpLoop.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
+RandomTpLoop.BorderSizePixel = 0
+RandomTpLoop.Position = UDim2.new(0.419417471, 0, 0.707692325, 0)
+RandomTpLoop.Size = UDim2.new(0, 65, 0, 50)
+RandomTpLoop.Font = Enum.Font.SourceSansBold
+RandomTpLoop.Text = "Off"
+RandomTpLoop.TextColor3 = Color3.fromRGB(255, 255, 255)
+RandomTpLoop.TextScaled = true
+RandomTpLoop.TextSize = 14.000
+RandomTpLoop.TextWrapped = true
+
+SelfDestruct.Name = "SelfDestruct"
+SelfDestruct.Parent = SecondaryFrame
+SelfDestruct.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+SelfDestruct.BorderSizePixel = 0
+SelfDestruct.Position = UDim2.new(0, 0, -0.31076923, 0)
+SelfDestruct.Size = UDim2.new(0, 200, 0, 50)
+SelfDestruct.Font = Enum.Font.SourceSansBold
+SelfDestruct.Text = "DestroyGui"
+SelfDestruct.TextColor3 = Color3.fromRGB(255, 255, 255)
+SelfDestruct.TextScaled = true
+SelfDestruct.TextSize = 14.000
+SelfDestruct.TextWrapped = true
+
+Title.Name = "Title"
+Title.Parent = Main
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.Position = UDim2.new(-0.00189393945, 0, 0, 0)
+Title.Size = UDim2.new(0, 528, 0, 33)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "RFintensityHub"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+Title2.Name = "Title2"
+Title2.Parent = Main
+Title2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title2.BackgroundTransparency = 1.000
+Title2.Position = UDim2.new(0, 0, 0.0863874331, 0)
+Title2.Size = UDim2.new(0, 528, 0, 17)
+Title2.Font = Enum.Font.SourceSansBold
+Title2.Text = "Made by DripzBoi21"
+Title2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title2.TextScaled = true
+Title2.TextSize = 14.000
+Title2.TextWrapped = true
+
+DestructAccpet.Name = "DestructAccpet"
+DestructAccpet.Parent = Main
+DestructAccpet.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+DestructAccpet.Position = UDim2.new(0.92992425, 0, -0.230366483, 0)
+DestructAccpet.Size = UDim2.new(0, 330, 0, 209)
+DestructAccpet.Visible = false
+
+Accept.Name = "Accept"
+Accept.Parent = DestructAccpet
+Accept.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+Accept.BorderSizePixel = 0
+Accept.Position = UDim2.new(0.197734639, 0, 0.181376517, 0)
+Accept.Size = UDim2.new(0, 200, 0, 50)
+Accept.Font = Enum.Font.SourceSansBold
+Accept.Text = "Accept"
+Accept.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accept.TextScaled = true
+Accept.TextSize = 14.000
+Accept.TextWrapped = true
+
+DEC.Name = "DEC"
+DEC.Parent = DestructAccpet
+DEC.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+DEC.BorderSizePixel = 0
+DEC.Position = UDim2.new(0.197734639, 0, 0.578505695, 0)
+DEC.Size = UDim2.new(0, 200, 0, 50)
+DEC.Font = Enum.Font.SourceSansBold
+DEC.Text = "Decline"
+DEC.TextColor3 = Color3.fromRGB(255, 255, 255)
+DEC.TextScaled = true
+DEC.TextSize = 14.000
+DEC.TextWrapped = true
+
+Menu.Name = "Menu"
+Menu.Parent = Main
+Menu.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+Menu.BorderSizePixel = 0
+Menu.Position = UDim2.new(0.99854511, 0, 0.146839395, 0)
+Menu.Size = UDim2.new(0, 214, 0, 325)
+
+AdvancedaTp.Name = "AdvancedaTp"
+AdvancedaTp.Parent = Menu
+AdvancedaTp.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+AdvancedaTp.BorderSizePixel = 0
+AdvancedaTp.Position = UDim2.new(0.0310679618, 0, 0.0338461399, 0)
+AdvancedaTp.Size = UDim2.new(0, 200, 0, 50)
+AdvancedaTp.Font = Enum.Font.SourceSansBold
+AdvancedaTp.Text = "Character settings"
+AdvancedaTp.TextColor3 = Color3.fromRGB(255, 255, 255)
+AdvancedaTp.TextScaled = true
+AdvancedaTp.TextSize = 14.000
+AdvancedaTp.TextWrapped = true
+
+Fly.Name = "Fly"
+Fly.Parent = Menu
+Fly.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+Fly.BorderSizePixel = 0
+Fly.Position = UDim2.new(0.0310679618, 0, 0.212307677, 0)
+Fly.Size = UDim2.new(0, 200, 0, 50)
+Fly.Font = Enum.Font.SourceSansBold
+Fly.Text = "Tween  TP mode [Off]"
+Fly.TextColor3 = Color3.fromRGB(255, 255, 255)
+Fly.TextScaled = true
+Fly.TextSize = 14.000
+Fly.TextWrapped = true
+
+RemoteEventSpam.Name = "RemoteEventSpam"
+RemoteEventSpam.Parent = Menu
+RemoteEventSpam.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+RemoteEventSpam.BorderSizePixel = 0
+RemoteEventSpam.Position = UDim2.new(0.0310679618, 0, 0.575384617, 0)
+RemoteEventSpam.Size = UDim2.new(0, 200, 0, 50)
+RemoteEventSpam.Font = Enum.Font.SourceSansBold
+RemoteEventSpam.Text = "RemoteEventSpammer just wait till v.1.2"
+RemoteEventSpam.TextColor3 = Color3.fromRGB(255, 255, 255)
+RemoteEventSpam.TextScaled = true
+RemoteEventSpam.TextSize = 14.000
+RemoteEventSpam.TextWrapped = true
+
+DexExplorer.Name = "DexExplorer"
+DexExplorer.Parent = Menu
+DexExplorer.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+DexExplorer.BorderSizePixel = 0
+DexExplorer.Position = UDim2.new(0.0310679618, 0, 0.396923065, 0)
+DexExplorer.Size = UDim2.new(0, 200, 0, 50)
+DexExplorer.Font = Enum.Font.SourceSansBold
+DexExplorer.Text = "Explorer"
+DexExplorer.TextColor3 = Color3.fromRGB(255, 255, 255)
+DexExplorer.TextScaled = true
+DexExplorer.TextSize = 14.000
+DexExplorer.TextWrapped = true
+
+TpRandom_2.Name = "TpRandom"
+TpRandom_2.Parent = Menu
+TpRandom_2.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+TpRandom_2.BorderSizePixel = 0
+TpRandom_2.Position = UDim2.new(0.0310679618, 0, 0.763077021, 0)
+TpRandom_2.Size = UDim2.new(0, 200, 0, 50)
+TpRandom_2.Font = Enum.Font.SourceSansBold
+TpRandom_2.Text = "RemoteEventFinder wait till v.2.0"
+TpRandom_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TpRandom_2.TextScaled = true
+TpRandom_2.TextSize = 14.000
+TpRandom_2.TextWrapped = true
+-- Script instances
+for _, child in pairs(workspace:GetDescendants()) do
+	if child:IsA("BasePart") then
+		print(child.ClassName)
+	end
+end
+local bodyVel = Instance.new("BodyPosition")
+
+bodyVel.MaxForce = Vector3.new(0,0,0)
+bodyVel.P = 10000
+-- Scripts:
+
+
+mouse.KeyDown:Connect(function(key)
+
+	if key == "v" then
+		print(key)
+		if		RFintensityHub.Enabled == false then
+			RFintensityHub.Enabled = true
+
+
+		else
+			RFintensityHub.Enabled = false
+		end
+
+	end
+end)
+
+
+local function clip()
+	
+end
+
+WalkSpeed.MouseButton1Click:Connect(function()
+	char.Humanoid.WalkSpeed = Speed.Text
+end)
+
+Teleport.MouseButton1Click:Connect(function()
+	for i, part in pairs(game.Players:GetChildren()) do
+		if string.match(part.Name, Plr.Text) then
+if tweentpMode == false then
+
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(part.Character.Head.Position.X, part.Character.Head.Position.Y, part.Character.Head.Position.Z))
+			else
+
+				bodyVel.MaxForce = Vector3.new(30000,30000,30000)
+				bodyVel.Position = part.Character.Head.Position
+				bodyVel.Parent = char.Head
+				wait(2)
+				
+bodyVel.MaxForce = Vector3.new(0,0,0)
+			end
+			end
+	end
+end)
+TpRandom.MouseButton1Click:Connect(function()
+	local randomPlayer = game.Players:GetPlayers()
+	[math.random(1,#game.Players:GetPlayers())]
+	if tweentpMode == false then
+		
+	
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(randomPlayer.Character.Head.Position.X, randomPlayer.Character.Head.Position.Y, randomPlayer.Character.Head.Position.Z))
+	else
+
+		bodyVel.MaxForce = Vector3.new(30000,30000,30000)
+		bodyVel.Position = randomPlayer.Character.Head.Position
+		bodyVel.Parent = char.Head
+		wait(2)
+		
+bodyVel.MaxForce = Vector3.new(0,0,0)
+	end	
+end)
+
+
+RandomTpLoop.MouseButton1Click:Connect(function()
+	if randomtploopval == false then
+
+		randomtploopval = true
+		RandomTpLoop.Text = "On"
+		repeat
+			if tweentpMode == false then
+			local randomPlayer = game.Players:GetPlayers()
+			[math.random(1,#game.Players:GetPlayers())]
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(randomPlayer.Character.Head.Position.X, randomPlayer.Character.Head.Position.Y, randomPlayer.Character.Head.Position.Z)) wait(0.1)
+			else
+				local randomPlayer = game.Players:GetPlayers()
+				[math.random(1,#game.Players:GetPlayers())]
+				bodyVel.Position = randomPlayer.Character.Head.Position
+				bodyVel.Parent = char.Head
+
+				bodyVel.MaxForce = Vector3.new(30000,30000,30000)
+				wait(2)
+				
+bodyVel.MaxForce = Vector3.new(0,0,0)
+			end
+		until  randomtploopval == false
+	else
+		randomtploopval = false
+		RandomTpLoop.Text = "Off"
+	end
+end)
+
+
+Fly.MouseButton1Click:Connect(function()
+	if tweentpMode == false then 
+		tweentpMode = true
+		Fly.Text = "Tween  TP mode [On]"
+	else
+		tweentpMode= false  
+		Fly.Text = "Tween  TP mode [Off]"
+	end
+end)
+
+
+
+------------------------OTHER SECTION
+-------------------------
+----------------------------
+
+--------------------------
+--------------------------
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local DestructAccpet = Instance.new("Frame")
+local Accept = Instance.new("TextButton")
+local DEC = Instance.new("TextButton")
+DestructAccpet.Parent = RFintensityHub
+DestructAccpet.Visible = false
+--Properties:
+
+DestructAccpet.Name = "DestructAccpet"
+DestructAccpet.Parent = RFintensityHub
+DestructAccpet.BackgroundColor3 = Color3.fromRGB(38, 38, 38)
+DestructAccpet.Position = UDim2.new(0.92992425, 0, -0.230366483, 0)
+DestructAccpet.Size = UDim2.new(0, 330, 0, 209)
+
+Accept.Name = "Accept"
+Accept.Parent = DestructAccpet
+Accept.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+Accept.BorderSizePixel = 0
+Accept.Position = UDim2.new(0.197734639, 0, 0.181376517, 0)
+Accept.Size = UDim2.new(0, 200, 0, 50)
+Accept.Font = Enum.Font.SourceSansBold
+Accept.Text = "Accept"
+Accept.TextColor3 = Color3.fromRGB(255, 255, 255)
+Accept.TextScaled = true
+Accept.TextSize = 14.000
+Accept.TextWrapped = true
+
+DEC.Name = "DEC"
+DEC.Parent = DestructAccpet
+DEC.BackgroundColor3 = Color3.fromRGB(44, 44, 44)
+DEC.BorderSizePixel = 0
+DEC.Position = UDim2.new(0.197734639, 0, 0.578505695, 0)
+DEC.Size = UDim2.new(0, 200, 0, 50)
+DEC.Font = Enum.Font.SourceSansBold
+DEC.Text = "Decline"
+DEC.TextColor3 = Color3.fromRGB(255, 255, 255)
+DEC.TextScaled = true
+DEC.TextSize = 14.000
+DEC.TextWrapped = true
+
+SelfDestruct.MouseButton1Click:Connect(function()
+RFintensityHub:Destroy()
+end)
+
